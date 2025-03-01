@@ -1,5 +1,16 @@
 FROM ubuntu:22.04
 
+# 构建阶段代理设置
+# ARG 在 build 时生效，例如 apt-get、pip install 等
+#ARG HTTP_PROXY=http://host.docker.internal:7890
+#ARG HTTPS_PROXY=http://host.docker.internal:7890
+
+# 运行阶段代理设置
+# 在容器运行时生效，例如应用运行过程中访问外部网络
+#ENV HTTP_PROXY=$HTTP_PROXY
+#ENV HTTPS_PROXY=$HTTPS_PROXY
+
+
 # 设置环境变量以非交互模式安装
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -10,11 +21,21 @@ RUN apt-get update && \
     apt-get update && \
     apt-get install -y vim wget lsof  curl uuid-dev python3.10 python3.10-distutils python3.10-venv  git && \
     apt-get install -y python3-pip && \
+    apt-get install -y openssh-server && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
+# 创建 SSH 运行目录
+RUN mkdir /var/run/sshd
+# 设置 root 用户密码
+RUN echo 'root:123456' | chpasswd
+
+# 设置时区 (可选)
+RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
+    echo "Asia/Shanghai" > /etc/timezone
 # 设置默认 Python 版本
 RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.10 1
+
 
 # 安装 Rust 和 Cargo
 RUN apt-get update && apt-get install -y curl && curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y && \
@@ -43,6 +64,11 @@ RUN mkdir -p /project && \
     cd /project/mofa/python/mofa/agent_templates/reasoner && \
     dora build reasoner_dataflow.yml
 
+
+# 开放22端口
+EXPOSE 22
+
 WORKDIR /project
 
-CMD ["/bin/bash"]
+# 启动 SSH 服务
+CMD ["/usr/sbin/sshd", "-D"]

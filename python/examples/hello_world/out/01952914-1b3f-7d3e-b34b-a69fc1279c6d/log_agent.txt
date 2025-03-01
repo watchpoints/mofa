@@ -1,0 +1,26 @@
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+RuntimeError: Dora Runtime raised an error.
+
+Caused by:
+   0: main task failed
+   1: failed to init an operator
+   2: failed to init python operator
+   3: Traceback (most recent call last):
+        File "/Users/wangchuanyi/money/years/mofa/python/examples/hello_world/scripts/agent.py", line 6, in <module>
+          from mofa.run.run_agent import run_dspy_agent, run_crewai_agent, run_dspy_or_crewai_agent
+        File "/Users/wangchuanyi/money/years/mofa/python/mofa/run/run_agent.py", line 11, in <module>
+          from mofa.agent_build.base.llm_client import SiliconFlowClient
+        File "/Users/wangchuanyi/money/years/mofa/python/mofa/agent_build/base/llm_client.py", line 1, in <module>
+          from dsp import LM
+        File "/opt/anaconda3/envs/py310/lib/python3.10/site-packages/dsp/__init__.py", line 1, in <module>
+          from .modules import *
+        File "/opt/anaconda3/envs/py310/lib/python3.10/site-packages/dsp/modules/__init__.py", line 6, in <module>
+          from .cohere import *
+        File "/opt/anaconda3/envs/py310/lib/python3.10/site-packages/dsp/modules/cohere.py", line 9, in <module>
+          cohere_api_error = cohere.CohereAPIError
+
+      AttributeError: module 'cohere' has no attribute 'CohereAPIError'
+
+Location:
+    binaries/runtime/src/operator/python.rs:28:9

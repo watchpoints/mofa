@@ -5,7 +5,7 @@ AGENT:
 
 
 MODEL:
-  MODEL_API_KEY:   
+  MODEL_API_KEY:sk-67d78600ae6944f39c980c0e29d388b9
   MODEL_NAME: deepseek-ai/DeepSeek-V2-Chat
   MODEL_MAX_TOKENS: 2048
   MODEL_API_URL: https://api.siliconflow.cn/v1/chat/completions

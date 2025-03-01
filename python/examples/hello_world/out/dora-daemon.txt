@@ -1,0 +1,57 @@
+2025-02-16T12:22:52.571254Z  INFO dora_daemon::coordinator: Connected to dora-coordinator at 127.0.0.1:53290
+2025-02-16T12:48:57.593450Z  INFO run_inner{self.machine_id=}: dora_daemon: received destroy command -> exiting
+2025-02-16T12:49:04.135302Z  INFO dora_daemon::coordinator: Connected to dora-coordinator at 127.0.0.1:53290
+2025-02-16T13:22:46.274227Z  INFO run_inner{self.machine_id=}: dora_daemon: received destroy command -> exiting
+2025-02-16T13:23:00.426080Z  INFO dora_daemon::coordinator: Connected to dora-coordinator at 127.0.0.1:53290
+2025-02-16T13:47:58.078474Z  INFO run_inner{self.machine_id=}: dora_daemon: received destroy command -> exiting
+2025-02-16T13:48:04.223607Z  INFO dora_daemon::coordinator: Connected to dora-coordinator at 127.0.0.1:53290
+2025-02-16T13:58:41.837635Z  INFO run_inner{self.machine_id=}: dora_daemon: received destroy command -> exiting
+2025-02-16T13:58:46.468401Z  INFO dora_daemon::coordinator: Connected to dora-coordinator at 127.0.0.1:53290
+2025-02-16T14:06:53.836638Z  INFO run_inner{self.machine_id=}: dora_daemon: Dataflow `01950f15-2859-71e2-ab88-b32ebd269c2a` finished on machine ``
+2025-02-16T14:08:10.944176Z  INFO run_inner{self.machine_id=}: dora_daemon: Dataflow `01950f16-898e-720b-acdc-83bb3e0c9215` finished on machine ``
+2025-02-16T14:17:27.102274Z  INFO run_inner{self.machine_id=}: dora_daemon: node `terminal-input` is ready
+2025-02-16T14:17:40.569713Z  INFO run_inner{self.machine_id=}: dora_daemon: Dataflow `01950f1e-1014-7849-a9b2-726745d8856b` finished on machine ``
+2025-02-16T14:17:40.571322Z  INFO dora_daemon::node_communication: channel disconnected before register message
+2025-02-16T14:19:23.868099Z  INFO run_inner{self.machine_id=}: dora_daemon: node `terminal-input` is ready
+2025-02-16T14:19:35.328776Z  INFO run_inner{self.machine_id=}: dora_daemon: Dataflow `01950f20-b9c1-76de-a634-dfd3983190a6` finished on machine ``
+2025-02-16T14:19:35.329008Z  INFO dora_daemon::node_communication: channel disconnected before register message
+2025-02-16T14:22:27.637314Z  INFO run_inner{self.machine_id=}: dora_daemon: node `terminal-input` is ready
+2025-02-16T14:22:42.570310Z  INFO run_inner{self.machine_id=}: dora_daemon: Dataflow `01950f23-89c3-7f03-9fde-2c660505d38f` finished on machine ``
+2025-02-16T14:22:42.571036Z  INFO dora_daemon::node_communication: channel disconnected before register message
+2025-02-16T14:25:40.017683Z  INFO run_inner{self.machine_id=}: dora_daemon: node `terminal-input` is ready
+2025-02-16T14:26:17.939688Z  INFO run_inner{self.machine_id=}: dora_daemon: Dataflow `01950f26-5c87-7587-8897-c437f50b430f` finished on machine ``
+2025-02-16T14:26:17.939875Z  INFO dora_daemon::node_communication: channel disconnected before register message
+2025-02-16T14:28:22.358878Z  INFO run_inner{self.machine_id=}: dora_daemon: node `terminal-input` is ready
+2025-02-16T14:28:25.384717Z  INFO run_inner{self.machine_id=}: dora_daemon: Dataflow `01950f28-c98b-7d38-8c16-9d26c3106bcc` finished on machine ``
+2025-02-16T14:28:25.385716Z  INFO dora_daemon::node_communication: channel disconnected before register message
+2025-02-16T14:28:45.838918Z  INFO run_inner{self.machine_id=}: dora_daemon: received destroy command -> exiting
+2025-02-16T14:28:51.596253Z  INFO dora_daemon::coordinator: Connected to dora-coordinator at 127.0.0.1:53290
+2025-02-16T14:29:06.807040Z  INFO run_inner{self.machine_id=}: dora_daemon: node `terminal-input` is ready
+2025-02-16T14:29:17.949583Z  INFO run_inner{self.machine_id=}: dora_daemon: Dataflow `01950f29-997f-76f1-8ecd-b073bd4fda48` finished on machine ``
+2025-02-16T14:29:17.950153Z  INFO dora_daemon::node_communication: channel disconnected before register message
+2025-02-16T14:32:03.152111Z  INFO run_inner{self.machine_id=}: dora_daemon: received destroy command -> exiting
+2025-02-16T14:44:20.767636Z  INFO dora_daemon::coordinator: Connected to dora-coordinator at 127.0.0.1:53290
+2025-02-16T14:44:35.546561Z  INFO run_inner{self.machine_id=}: dora_daemon: node `terminal-input` is ready
+2025-02-16T14:44:46.759047Z  INFO run_inner{self.machine_id=}: dora_daemon: Dataflow `01950f37-c43a-7b40-8e88-a634536dca83` finished on machine ``
+2025-02-16T14:44:46.761112Z  INFO dora_daemon::node_communication: channel disconnected before register message
+2025-02-21T15:39:18.458609Z  INFO dora_daemon::coordinator: Connected to dora-coordinator at 127.0.0.1:53290
+2025-02-21T15:39:43.117500Z  INFO run_inner{self.machine_id=}: dora_daemon: node `terminal-input` is ready
+2025-02-21T15:39:51.329852Z  INFO run_inner{self.machine_id=}: dora_daemon: Dataflow `0195292a-0409-7956-87ae-a238119b5fed` finished on machine ``
+2025-02-21T15:39:51.331292Z  INFO dora_daemon::node_communication: channel disconnected before register message
+2025-02-21T15:45:27.141222Z  INFO run_inner{self.machine_id=}: dora_daemon: received destroy command -> exiting
+2025-02-21T15:45:33.647692Z  INFO dora_daemon::coordinator: Connected to dora-coordinator at 127.0.0.1:53290
+2025-02-21T15:46:22.037021Z  INFO run_inner{self.machine_id=}: dora_daemon: node `terminal-input` is ready
+2025-02-21T15:46:30.397872Z  INFO run_inner{self.machine_id=}: dora_daemon: Dataflow `01952930-153e-70e4-b3c3-7508b593368d` finished on machine ``
+2025-02-21T15:46:30.399823Z  INFO dora_daemon::node_communication: channel disconnected before register message
+2025-02-21T15:49:47.297246Z  INFO run_inner{self.machine_id=}: dora_daemon: node `terminal-input` is ready
+2025-02-21T15:49:58.808708Z  INFO run_inner{self.machine_id=}: dora_daemon: Dataflow `01952933-4005-77b1-ba96-8cb2809e4e36` finished on machine ``
+2025-02-21T15:49:58.809747Z  INFO dora_daemon::node_communication: channel disconnected before register message
+2025-02-21T15:51:04.984687Z  INFO run_inner{self.machine_id=}: dora_daemon: node `terminal-input` is ready
+2025-02-21T15:51:14.327483Z  INFO run_inner{self.machine_id=}: dora_daemon: Dataflow `01952934-7a10-7608-8568-96f655820f4e` finished on machine ``
+2025-02-21T15:51:14.327785Z  INFO dora_daemon::node_communication: channel disconnected before register message
+2025-02-21T16:02:45.420986Z  INFO run_inner{self.machine_id=}: dora_daemon: received destroy command -> exiting
+2025-02-21T16:02:50.822973Z  INFO dora_daemon::coordinator: Connected to dora-coordinator at 127.0.0.1:53290
+2025-02-21T16:03:09.678437Z  INFO run_inner{self.machine_id=}: dora_daemon: Dataflow `0195293f-8fde-7008-a375-0230d8f64219` finished on machine ``
+2025-02-21T16:04:14.595472Z  INFO run_inner{self.machine_id=}: dora_daemon: Dataflow `01952940-923e-760c-ac37-da8b9a5d4dfc` finished on machine ``
+2025-02-21T16:07:11.548286Z  INFO run_inner{self.machine_id=}: dora_daemon: Dataflow `01952943-417c-75b7-88c3-23840937c4be` finished on machine ``
+2025-02-21T16:09:22.501767Z  INFO run_inner{self.machine_id=}: dora_daemon: Dataflow `01952945-4076-737e-8165-84c361d82418` finished on machine ``
