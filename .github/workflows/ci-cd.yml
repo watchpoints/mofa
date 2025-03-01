@@ -1,8 +1,7 @@
 name: Mofa CI/CD Workflow
 
 on:
-  # 手动触发事件
-  - workflow_dispatch
+  - workflow_dispatch  #手动触发
   push: #https://docs.github.com/zh/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#push
     branches: 
       - $default-branch # 默认main分支
