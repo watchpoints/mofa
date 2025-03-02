@@ -83,7 +83,7 @@ jobs:
 
     - name: Run tests
       run: |
-        cd ${{ github.workspace }}/mofa/python
+        cd ${{ github.workspace }}/python
         echo "test"
 
 
