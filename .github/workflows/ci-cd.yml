@@ -1,18 +1,19 @@
 name: Mofa CI/CD Workflow
 
 on:
-  workflow_dispatch:
+  workflow_dispatch: 
     inputs:
       parameter1:
         description: "输入参数1"
         required: true
-        default: "默认值1"
+        default: "手工触发"
   push: #https://docs.github.com/zh/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#push
     branches: 
       - $default-branch # 默认main分支
     paths-ignore:
       - 'Gosim_2024_Hackathon/documents/**'
       - '.gitignore'
+      - '.github/**'
       - 'README.md'
       - 'README_CN.md'
 env:
@@ -55,8 +56,8 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y software-properties-common vim curl git lsof uuid-dev 
         sudo add-apt-repository ppa:deadsnakes/ppa
-        sudo apt-get install -y python3.10 python3.10-distutils python3.10-venv python3-pip
-        python3 -m pip install --upgrade pip
+        #sudo apt-get install -y python3.10 python3.10-distutils python3.10-venv python3-pip
+        #python3 -m pip install --upgrade pip
     - name: Set up Rust environment
       uses: dtolnay/rust-toolchain@master
       with:
@@ -70,7 +71,7 @@ jobs:
     - name: Build Dora Dataflow
       run: |
         # Navigate to the project directory (already checked out by actions/checkout@v3)
-        cd ${{ github.workspace }}/mofa/python
+        cd ${{ github.workspace }}/python
 
         # Install Python dependencies
         pip3 install -r requirements.txt
