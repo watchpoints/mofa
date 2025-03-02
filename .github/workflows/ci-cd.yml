@@ -73,10 +73,11 @@ jobs:
         # Navigate to the project directory (already checked out by actions/checkout@v3)
         echo "GitHub Workspace: ${{ github.workspace }}"
         echo "Current directory: $(pwd)"
+        ls -la ${{ github.workspace }}
         #cd ${{ github.workspace }}/python
-
+        cd  python
         # Install Python dependencies
-        pip3 install -r requirements.txt
+        pip3 install -r ./requirements.txt
         pip3 install --no-cache-dir -e .
     
         # Build the Dora Dataflow component
