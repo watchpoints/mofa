@@ -1,4 +1,4 @@
-name: Mofa CI/CD Workflow
+name: Mofa CI/CD
 
 on:
   workflow_dispatch: 
