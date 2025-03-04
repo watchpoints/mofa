@@ -44,7 +44,16 @@ jobs:
         docker-images: true
     - name: Checkout repository #下载代码 https://github.com/actions/checkout
       uses: actions/checkout@v3
+      with:
+          repository: watchpoints/mofa
+          path: ./mofa  # 自定义路径
       #默认克隆到 ${{ github.workspace }} 目录
+    - name: Show workspace path
+        run: echo "Workspace: ${{ github.workspace }}"
+
+    - name: List files in workspace
+        run: ls -la ${{ github.workspace }}
+      
     - name: Set up Python
       uses: actions/setup-python@v5
       with:
@@ -73,16 +82,14 @@ jobs:
         # Navigate to the project directory (already checked out by actions/checkout@v3)
         echo "GitHub Workspace: ${{ github.workspace }}"
         echo "Current directory: $(pwd)"
-        ls -la ${{ github.workspace }}
-        ls -la $(pwd)
-        cd ${{ github.workspace }}/python
+        cd  ./mofa/python
         # Install Python dependencies
         pip3 install -r ./requirements.txt
         pip3 install --no-cache-dir -e .
     
         # Build the Dora Dataflow component
-        cd mofa/agent_templates/reasoner
-        dora build reasoner_dataflow.yml
+        #cd mofa/agent_templates/reasoner
+        #dora build reasoner_dataflow.yml
 
     - name: Run tests
       run: |
