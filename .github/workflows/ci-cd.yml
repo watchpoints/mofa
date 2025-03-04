@@ -60,7 +60,7 @@ jobs:
       uses: actions/setup-python@v5
       with:
         python-version: ${{ env.PYTHON_VERSION }}
-    - name: Install ubuntu environment #安装依赖
+    - name: Install ubuntu environment #安装依赖11
       shell: bash
       run: |
         export DEBIAN_FRONTEND=noninteractive  
