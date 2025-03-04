@@ -82,7 +82,7 @@ jobs:
         # Navigate to the project directory (already checked out by actions/checkout@v3)
         echo "GitHub Workspace: ${{ github.workspace }}"
         echo "Current directory: $(pwd)"
-        cd  ./mofa/python
+        cd ${{ github.workspace }}/python
         # Install Python dependencies
         pip3 install -r ./requirements.txt
         pip3 install --no-cache-dir -e .
