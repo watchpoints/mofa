@@ -46,13 +46,15 @@ jobs:
       uses: actions/checkout@v3
       with:
           repository: watchpoints/mofa
-          path: ./mofa  # 自定义路径
+          #path: ./mofa  # 自定义路径
       #默认克隆到 ${{ github.workspace }} 目录
     - name: Show workspace path
-        run: echo "Workspace: ${{ github.workspace }}"
+        run: |
+          echo "Workspace: ${{ github.workspace }}"
 
     - name: List files in workspace
-        run: ls -la ${{ github.workspace }}
+        run: |
+          ls -la ${{ github.workspace }}
       
     - name: Set up Python
       uses: actions/setup-python@v5
@@ -79,7 +81,6 @@ jobs:
 
     - name: Build Dora Dataflow
       run: |
-        # Navigate to the project directory (already checked out by actions/checkout@v3)
         echo "GitHub Workspace: ${{ github.workspace }}"
         echo "Current directory: $(pwd)"
         cd ${{ github.workspace }}/python
@@ -90,6 +91,14 @@ jobs:
         # Build the Dora Dataflow component
         #cd mofa/agent_templates/reasoner
         #dora build reasoner_dataflow.yml
+        mkdir -p /project
+        cd /project
+        git clone https://github.com/moxin-org/mofa.git
+        cd /project/mofa/python
+        pip3 install --upgrade pip --index-url https://pypi.org/simple
+        pip3 install --upgrade --ignore-installed blinker
+        pip3 install -r ./requirements.txt
+        pip3 install -e .
 
     - name: Run tests
       run: |
