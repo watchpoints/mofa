@@ -1,0 +1,109 @@
+name: Mofa CI/CD
+
+on:
+  workflow_dispatch: 
+    inputs:
+      parameter1:
+        description: "输入参数1"
+        required: true
+        default: "手工触发"
+  push: #https://docs.github.com/zh/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#push
+    branches: 
+      - $default-branch # 默认main分支
+    paths-ignore:
+      - 'Gosim_2024_Hackathon/documents/**'
+      - '.gitignore'
+      - '.github/**'
+      - 'README.md'
+      - 'README_CN.md'
+env:
+  PYTHON_VERSION: '3.10'
+
+jobs:
+  ubuntu-build:
+    runs-on: ubuntu-22.04
+    # act -P ubuntu-latest=ghcr.io/catthehacker/ubuntu:act-latest
+    container:
+      image: ghcr.io/catthehacker/ubuntu:act-latest  # 指定 act-latest 镜像
+    steps:
+    - name: Free Disk Space 
+      # 自己编译docker10G 情况一下磁盘空间 https://github.com/insightsengineering/disk-space-reclaimer
+      uses: insightsengineering/disk-space-reclaimer@v1
+      with:
+        # this might remove tools that are actually needed,
+        # if set to "true" but frees about 6 GB
+        tools-cache: false
+
+        # all of these default to true, but feel free to set to
+        # "false" if necessary for your workflow
+        android: true
+        dotnet: true
+        haskell: true
+        large-packages: true
+        swap-storage: true
+        docker-images: true
+    - name: Checkout repository #下载代码 https://github.com/actions/checkout
+      uses: actions/checkout@v3
+      with:
+          repository: watchpoints/mofa
+          #path: ./mofa  # 自定义路径
+      #默认克隆到 ${{ github.workspace }} 目录
+    - name: Show workspace path
+        run: |
+          echo "Workspace: ${{ github.workspace }}"
+
+    - name: List files in workspace
+        run: |
+          ls -la ${{ github.workspace }}
+      
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+    - name: Install ubuntu environment #安装依赖11
+      shell: bash
+      run: |
+        export DEBIAN_FRONTEND=noninteractive  
+        sudo apt-get update
+        sudo apt-get install -y software-properties-common vim curl git lsof uuid-dev 
+        sudo add-apt-repository ppa:deadsnakes/ppa
+        #sudo apt-get install -y python3.10 python3.10-distutils python3.10-venv python3-pip
+        #python3 -m pip install --upgrade pip
+    - name: Set up Rust environment
+      uses: dtolnay/rust-toolchain@master
+      with:
+        toolchain: stable
+        components: rustfmt, clippy
+    - name: Install Dora
+      run: |
+        cargo install dora-cli --locked
+        pip3 install --upgrade dora-rs
+
+    - name: Build Dora Dataflow
+      run: |
+        echo "GitHub Workspace: ${{ github.workspace }}"
+        echo "Current directory: $(pwd)"
+        cd ${{ github.workspace }}/python
+        # Install Python dependencies
+        pip3 install -r ./requirements.txt
+        pip3 install --no-cache-dir -e .
+    
+        # Build the Dora Dataflow component
+        #cd mofa/agent_templates/reasoner
+        #dora build reasoner_dataflow.yml
+        mkdir -p /project
+        cd /project
+        git clone https://github.com/moxin-org/mofa.git
+        cd /project/mofa/python
+        pip3 install --upgrade pip --index-url https://pypi.org/simple
+        pip3 install --upgrade --ignore-installed blinker
+        pip3 install -r ./requirements.txt
+        pip3 install -e .
+
+    - name: Run tests
+      run: |
+        cd ${{ github.workspace }}/python
+        echo "test"
+
+
+  
