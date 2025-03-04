@@ -73,11 +73,10 @@ jobs:
     - name: Build Dora Dataflow
       run: |
         echo "GitHub Workspace: ${{ github.workspace }}"
-        echo "Current directory: $(pwd)"
-        cd ${{ github.workspace }}/python
+        #  cd ${{ github.workspace }}/python
         # Install Python dependencies
-        pip3 install -r ./requirements.txt
-        pip3 install --no-cache-dir -e .
+        #pip3 install -r ./requirements.txt
+        #pip3 install --no-cache-dir -e .
     
         # Build the Dora Dataflow component
         #cd mofa/agent_templates/reasoner
