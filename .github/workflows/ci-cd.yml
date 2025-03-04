@@ -46,16 +46,7 @@ jobs:
       uses: actions/checkout@v3
       with:
           repository: watchpoints/mofa
-          #path: ./mofa  # 自定义路径
-      #默认克隆到 ${{ github.workspace }} 目录
-    - name: Show workspace path
-        run: |
-          echo "Workspace: ${{ github.workspace }}"
-
-    - name: List files in workspace
-        run: |
-          ls -la ${{ github.workspace }}
-      
+          path: ./mofa  # 自定义路径
     - name: Set up Python
       uses: actions/setup-python@v5
       with:
